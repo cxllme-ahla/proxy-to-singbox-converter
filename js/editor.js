@@ -59,7 +59,9 @@ function convertVless(input, enableCustomTag, customTagName) {
         }
         
         let tls = {"enabled": false};
-        const tls_enabled = params.get('security') === 'tls' || [443, 2053, 2083, 2087, 2096, 8443].includes(port);
+        const security = params.get('security');
+        const tls_enabled = security === 'tls' || security === 'reality' || [443, 2053, 2083, 2087, 2096, 8443].includes(port);
+        
         if (tls_enabled) {
             tls = {
                 "enabled": true,
@@ -69,9 +71,25 @@ function convertVless(input, enableCustomTag, customTagName) {
                 "record_fragment": false,
                 "utls": {
                     "enabled": true,
-                    "fingerprint": "chrome"
+                    "fingerprint": params.get('fp') || "chrome"
                 }
             };
+            
+            if (security === 'reality') {
+                const pbk = params.get('pbk');
+                const sid = params.get('sid');
+                
+                if (pbk) {
+                    tls.reality = {
+                        "enabled": true,
+                        "public_key": pbk
+                    };
+                    
+                    if (sid) {
+                        tls.reality.short_id = sid;
+                    }
+                }
+            }
         }
 
         return {
