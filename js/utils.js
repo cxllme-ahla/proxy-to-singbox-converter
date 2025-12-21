@@ -67,6 +67,18 @@ function convertToVless(outbound) {
     if (transport?.path) params.set('path', transport.path);
     if (transport?.headers?.Host) params.set('host', transport.headers.Host);
     if (tls?.server_name) params.set('sni', tls.server_name);
+    
+    if (tls?.reality?.enabled) {
+        params.set('security', 'reality');
+        if (tls.reality.public_key) params.set('pbk', tls.reality.public_key);
+        if (tls.reality.short_id) params.set('sid', tls.reality.short_id);
+    } else if (tls?.enabled) {
+        params.set('security', 'tls');
+    }
+    
+    if (tls?.utls?.fingerprint) {
+        params.set('fp', tls.utls.fingerprint);
+    }
 
     const url = `vless://${uuid}@${server}:${server_port}?${params.toString()}#${encodeURIComponent(tag || "vless")}`;
     return url;
