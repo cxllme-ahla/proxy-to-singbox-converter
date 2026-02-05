@@ -32,6 +32,10 @@
             <div class="terminal-title">Sing-box Config Converter and Extractor (Drill)</div>
         </div>
         <div class="terminal-content">
+            <div class="terminal-header">
+  <span class="terminal-title">JSON Prompt Builder</span>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+</div>
             <div class="version-info">
                 <div class="badge-container">
                     <img src="https://img.shields.io/badge/version-3.1.0-blue.svg?cacheSeconds=2592000" alt="Version" class="badge" />
@@ -93,5 +97,24 @@
             document.querySelector('.loading-screen').style.display = 'none';
         }, 1000);
     </script>
+    <script>
+const toggleBtn = document.getElementById("themeToggle");
+
+function setTheme(mode) {
+  document.documentElement.dataset.theme = mode;
+  localStorage.setItem("theme", mode);
+  toggleBtn.textContent = mode === "light" ? "🌞" : "🌙";
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
+
+// Click handler
+toggleBtn.addEventListener("click", () => {
+  const current = document.documentElement.dataset.theme;
+  setTheme(current === "dark" ? "light" : "dark");
+});
+</script>
 </body>
 </html>
