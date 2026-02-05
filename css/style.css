@@ -6,27 +6,39 @@
 /* DEFAULT = DARK MODE */
 :root {
 
-  /* MD3 Core */
-  --md-primary: #5eead4;        /* Miku Teal */
-  --md-secondary: #7dd3fc;      /* Sky Blue */
-  --md-tertiary: #c4b5fd;       /* Soft Purple */
-  --md-error: #ff6b6b;
-  --md-warning: #facc15;
-  --md-success: #4ade80;
+  /* ===========================
+     MD3 Core - Sakura Miku Theme
+  =========================== */
 
-  /* Dark Surfaces */
-  --md-bg: #0f172a;
-  --md-surface: #111827;
-  --md-surface-variant: #1f2933;
-  --md-outline: #334155;
+  --md-primary: #f9a8d4;        /* Sakura Pink */
+  --md-secondary: #fbcfe8;      /* Light Blossom */
+  --md-tertiary: #c7d2fe;       /* Soft Lavender */
+  --md-error: #fb7185;          /* Rose Red */
+  --md-warning: #fcd34d;        /* Warm Peach */
+  --md-success: #86efac;        /* Mint Green */
 
-  /* Text */
-  --md-on-bg: #e5e7eb;
-  --md-on-surface: #d1d5db;
-  --md-on-primary: #042f2e;
+  /* ===========================
+     Dark Surfaces (Soft Dark Pink)
+  =========================== */
 
-  /* Glow */
-  --md-glow: rgba(94,234,212,0.45);
+  --md-bg: #0f0a14;             /* Dark Plum */
+  --md-surface: #1a1024;        /* Deep Purple */
+  --md-surface-variant: #2a163a;
+  --md-outline: #4b2a63;
+
+  /* ===========================
+     Text Colors
+  =========================== */
+
+  --md-on-bg: #fde7f3;          /* Pink White */
+  --md-on-surface: #fbcfe8;
+  --md-on-primary: #3b0a25;     /* Dark Rose */
+
+  /* ===========================
+     Glow Effect
+  =========================== */
+
+  --md-glow: rgba(249,168,212,0.45);
 
   /* ===========================
      Mapping to Existing Terminal Variables
@@ -35,51 +47,13 @@
   --terminal-bg: var(--md-bg);
   --terminal-text: var(--md-on-bg);
   --terminal-green: var(--md-success);
-  --terminal-blue: var(--md-secondary);
+  --terminal-blue: var(--md-tertiary);
   --terminal-purple: var(--md-primary);
   --terminal-red: var(--md-error);
   --terminal-yellow: var(--md-warning);
   --terminal-input-bg: var(--md-surface);
   --terminal-border: var(--md-outline);
 }
-
-/* ===============================
-   LIGHT MODE
-   Activate with:
-   <html data-theme="light">
-================================ */
-
-html[data-theme="light"] {
-
-  --md-primary: #14b8a6;
-  --md-secondary: #0284c7;
-  --md-tertiary: #8b5cf6;
-  --md-error: #dc2626;
-  --md-warning: #ca8a04;
-  --md-success: #16a34a;
-
-  --md-bg: #f8fafc;
-  --md-surface: #ffffff;
-  --md-surface-variant: #f1f5f9;
-  --md-outline: #cbd5f5;
-
-  --md-on-bg: #020617;
-  --md-on-surface: #020617;
-  --md-on-primary: #ffffff;
-
-  --md-glow: rgba(20,184,166,0.35);
-
-  --terminal-bg: var(--md-bg);
-  --terminal-text: var(--md-on-bg);
-  --terminal-green: var(--md-success);
-  --terminal-blue: var(--md-secondary);
-  --terminal-purple: var(--md-primary);
-  --terminal-red: var(--md-error);
-  --terminal-yellow: var(--md-warning);
-  --terminal-input-bg: var(--md-surface);
-  --terminal-border: var(--md-outline);
-}
-
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
