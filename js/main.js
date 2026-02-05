@@ -155,3 +155,7 @@ function toggleCustomTagInput() {
     const input = document.getElementById('customTagInput');
     input.disabled = !checkbox.checked;
 }
+
+document.documentElement.dataset.theme = "light";
+// atau
+document.documentElement.dataset.theme = "dark";
